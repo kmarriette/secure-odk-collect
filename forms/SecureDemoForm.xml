@@ -1,0 +1,108 @@
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Secure Demo Form</h:title>
+    <model>
+      <instance>
+        <data id="build_Demo-Form_1557236740">
+          <meta>
+            <instanceID/>
+          </meta>
+          <firstName/>
+          <lastName/>
+          <village/>
+          <salary/>
+          <property/>
+          <untitled1/>
+        </data>
+      </instance>
+      <itext>
+        <translation lang="English">
+          <text id="/data/firstName:label">
+            <value>First Name</value>
+          </text>
+          <text id="/data/lastName:label">
+            <value>Last Name</value>
+          </text>
+          <text id="/data/village:label">
+            <value>Village</value>
+          </text>
+          <text id="/data/salary:label">
+            <value>Salary</value>
+          </text>
+          <text id="/data/property:label">
+            <value>Property</value>
+          </text>
+          <text id="/data/property:option0">
+            <value>Cattle</value>
+          </text>
+          <text id="/data/property:option1">
+            <value>Goats</value>
+          </text>
+          <text id="/data/property:option2">
+            <value>Land</value>
+          </text>
+          <text id="/data/property:option3">
+            <value>Buildings</value>
+          </text>
+        </translation>
+      </itext>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+      <bind nodeset="/data/firstName" type="string" required="true()" calculate="kmarriette"/>
+      <bind nodeset="/data/lastName" type="string" calculate="kmarriette"/>
+      <bind nodeset="/data/village" type="string" required="true()"/>
+      <bind nodeset="/data/salary" type="string" required="true()"/>
+      <bind nodeset="/data/property" type="select"/>
+      <bind nodeset="/data/untitled1" type="string" calculate="kmarriette"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/data/firstName">
+      <label ref="jr:itext('/data/firstName:label')"/>
+    </input>
+    <input ref="/data/lastName">
+      <label ref="jr:itext('/data/lastName:label')"/>
+    </input>
+    <input ref="/data/village">
+      <label ref="jr:itext('/data/village:label')"/>
+    </input>
+    <input ref="/data/salary">
+      <label ref="jr:itext('/data/salary:label')"/>
+    </input>
+    <select ref="/data/property">
+      <label ref="jr:itext('/data/property:label')"/>
+      <item>
+        <label ref="jr:itext('/data/property:option0')"/>
+        <value>cattle</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/property:option1')"/>
+        <value>goats</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/property:option2')"/>
+        <value>land</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/property:option3')"/>
+        <value>buildings</value>
+      </item>
+    </select>
+  </h:body>
+  <h:sensitivity>
+    <firstName ref="/data/firstName" level="critical">
+    </firstName>
+    <lastName ref="/data/lastName" level="confidential">
+    </lastName>
+    <village ref="/data/village" level="">
+    </village>
+    <salary ref="/data/salary" level="">
+    </salary>
+    <property ref="/data/property" level="">
+    </property>
+  </h:sensitivity>
+  <h:sdf profle="cc1">
+    <public encryption="DES" masking="Yes" accesscontrol="" hashing="" password="" anonymise="" storagearea="" deidentification=""/>
+    <confidential encryption="AES128" masking="Yes" accesscontrol="" hashing="" password="" anonymise="" storagearea="" deidentification=""/>
+    <critical encryption="AES256" masking="Yes" accesscontrol="" hashing="" password="" anonymise="" storagearea="" deidentification=""/>
+  </h:sdf>
+</h:html>

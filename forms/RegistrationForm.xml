@@ -1,0 +1,215 @@
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Registration Form</h:title>
+    <model>
+      <instance>
+        <data id="build_Registration-Form_1559304208">
+          <meta>
+            <instanceID/>
+          </meta>
+          <names>
+            <firstName/>
+            <middleName/>
+            <lastName/>
+          </names>
+          <address>
+            <village/>
+            <phoneNumber/>
+          </address>
+          <dob/>
+          <nationalID/>
+          <gender/>
+          <maritalStatus/>
+          <tribe/>
+          <religion/>
+          <educationLevel/>
+          <nok>
+            <names-nok/>
+            <relationship-nok/>
+            <phone-nok/>
+          </nok>
+        </data>
+      </instance>
+      <itext>
+        <translation lang="English">
+          <text id="/data/names:label">
+            <value>Names</value>
+          </text>
+          <text id="/data/names/firstName:label">
+            <value>First Name</value>
+          </text>
+          <text id="/data/names/middleName:label">
+            <value>Middle Name</value>
+          </text>
+          <text id="/data/names/lastName:label">
+            <value>Last Name</value>
+          </text>
+          <text id="/data/address:label">
+            <value>Address</value>
+          </text>
+          <text id="/data/address/village:label">
+            <value>Village</value>
+          </text>
+          <text id="/data/address/phoneNumber:label">
+            <value>Phone Number</value>
+          </text>
+          <text id="/data/dob:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/data/nationalID:label">
+            <value>National ID</value>
+          </text>
+          <text id="/data/gender:label">
+            <value>Gender</value>
+          </text>
+          <text id="/data/gender:option0">
+            <value>Female</value>
+          </text>
+          <text id="/data/gender:option1">
+            <value>Male</value>
+          </text>
+          <text id="/data/maritalStatus:label">
+            <value>Marital Status</value>
+          </text>
+          <text id="/data/maritalStatus:option0">
+            <value>Married</value>
+          </text>
+          <text id="/data/maritalStatus:option1">
+            <value>Single/Never Married</value>
+          </text>
+          <text id="/data/maritalStatus:option2">
+            <value>Divorced/Seperated</value>
+          </text>
+          <text id="/data/maritalStatus:option3">
+            <value>Child</value>
+          </text>
+          <text id="/data/maritalStatus:option4">
+            <value>Widowed</value>
+          </text>
+          <text id="/data/tribe:label">
+            <value>Tribe</value>
+          </text>
+          <text id="/data/religion:label">
+            <value>Religion</value>
+          </text>
+          <text id="/data/educationLevel:label">
+            <value>Education Level</value>
+          </text>
+          <text id="/data/nok:label">
+            <value>Next of Kin</value>
+          </text>
+          <text id="/data/nok/names-nok:label">
+            <value>Names</value>
+          </text>
+          <text id="/data/nok/relationship-nok:label">
+            <value>Relationship</value>
+          </text>
+          <text id="/data/nok/phone-nok:label">
+            <value>Phone Number</value>
+          </text>
+        </translation>
+      </itext>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+      <bind nodeset="/data/names/firstName" type="string" required="true()"/>
+      <bind nodeset="/data/names/middleName" type="string"/>
+      <bind nodeset="/data/names/lastName" type="string" required="true()"/>
+      <bind nodeset="/data/address/village" type="string" required="true()"/>
+      <bind nodeset="/data/address/phoneNumber" type="string"/>
+      <bind nodeset="/data/dob" type="date"/>
+      <bind nodeset="/data/nationalID" type="string"/>
+      <bind nodeset="/data/gender" type="select1" required="true()"/>
+      <bind nodeset="/data/maritalStatus" type="select1"/>
+      <bind nodeset="/data/tribe" type="string"/>
+      <bind nodeset="/data/religion" type="string"/>
+      <bind nodeset="/data/educationLevel" type="string"/>
+      <bind nodeset="/data/nok/names-nok" type="string"/>
+      <bind nodeset="/data/nok/relationship-nok" type="string"/>
+      <bind nodeset="/data/nok/phone-nok" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/names" appearance="field-list">
+      <label ref="jr:itext('/data/names:label')"/>
+      <input ref="/data/names/firstName">
+        <label ref="jr:itext('/data/names/firstName:label')"/>
+      </input>
+      <input ref="/data/names/middleName">
+        <label ref="jr:itext('/data/names/middleName:label')"/>
+      </input>
+      <input ref="/data/names/lastName">
+        <label ref="jr:itext('/data/names/lastName:label')"/>
+      </input>
+    </group>
+    <group ref="/data/address" appearance="field-list">
+      <label ref="jr:itext('/data/address:label')"/>
+      <input ref="/data/address/village">
+        <label ref="jr:itext('/data/address/village:label')"/>
+      </input>
+      <input ref="/data/address/phoneNumber">
+        <label ref="jr:itext('/data/address/phoneNumber:label')"/>
+      </input>
+    </group>
+    <input ref="/data/dob">
+      <label ref="jr:itext('/data/dob:label')"/>
+    </input>
+    <input ref="/data/nationalID">
+      <label ref="jr:itext('/data/nationalID:label')"/>
+    </input>
+    <select1 ref="/data/gender">
+      <label ref="jr:itext('/data/gender:label')"/>
+      <item>
+        <label ref="jr:itext('/data/gender:option0')"/>
+        <value>female</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/gender:option1')"/>
+        <value>male</value>
+      </item>
+    </select1>
+    <select1 ref="/data/maritalStatus">
+      <label ref="jr:itext('/data/maritalStatus:label')"/>
+      <item>
+        <label ref="jr:itext('/data/maritalStatus:option0')"/>
+        <value>married</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/maritalStatus:option1')"/>
+        <value>single</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/maritalStatus:option2')"/>
+        <value>divorced</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/maritalStatus:option3')"/>
+        <value>child</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/maritalStatus:option4')"/>
+        <value>widowed</value>
+      </item>
+    </select1>
+    <input ref="/data/tribe">
+      <label ref="jr:itext('/data/tribe:label')"/>
+    </input>
+    <input ref="/data/religion">
+      <label ref="jr:itext('/data/religion:label')"/>
+    </input>
+    <input ref="/data/educationLevel">
+      <label ref="jr:itext('/data/educationLevel:label')"/>
+    </input>
+    <group ref="/data/nok">
+      <label ref="jr:itext('/data/nok:label')"/>
+      <input ref="/data/nok/names-nok">
+        <label ref="jr:itext('/data/nok/names-nok:label')"/>
+      </input>
+      <input ref="/data/nok/relationship-nok">
+        <label ref="jr:itext('/data/nok/relationship-nok:label')"/>
+      </input>
+      <input ref="/data/nok/phone-nok">
+        <label ref="jr:itext('/data/nok/phone-nok:label')"/>
+      </input>
+    </group>
+  </h:body>
+  
+</h:html>

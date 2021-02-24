@@ -1,0 +1,208 @@
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Patient Registration Form</h:title>
+    <model>
+      <instance>
+        <data id="build_Registration-Form_1559313805">
+          <meta>
+            <instanceID/>
+          </meta>
+          <patientRegForm>
+            <firstName/>
+            <middleName/>
+            <lastName/>
+            <village/>
+            <phoneNumber/>
+            <dob/>
+            <nationalID/>
+            <gender/>
+            <maritalStatus/>
+            <tribe/>
+            <religion/>
+            <educationLevel/>
+          </patientRegForm>
+          <nok>
+            <names-nok/>
+            <relationship-nok/>
+            <phone-nok/>
+          </nok>
+        </data>
+      </instance>
+      <itext>
+        <translation lang="English">
+          <text id="/data/patientRegForm:label">
+            <value>Patient Registration Form</value>
+          </text>
+          <text id="/data/patientRegForm/firstName:label">
+            <value>First Name</value>
+          </text>
+          <text id="/data/patientRegForm/middleName:label">
+            <value>Middle Name</value>
+          </text>
+          <text id="/data/patientRegForm/lastName:label">
+            <value>Last Name</value>
+          </text>
+          <text id="/data/patientRegForm/village:label">
+            <value>Village</value>
+          </text>
+          <text id="/data/patientRegForm/phoneNumber:label">
+            <value>Phone Number</value>
+          </text>
+          <text id="/data/patientRegForm/dob:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/data/patientRegForm/nationalID:label">
+            <value>National ID</value>
+          </text>
+          <text id="/data/patientRegForm/gender:label">
+            <value>Gender</value>
+          </text>
+          <text id="/data/patientRegForm/gender:option0">
+            <value>Female</value>
+          </text>
+          <text id="/data/patientRegForm/gender:option1">
+            <value>Male</value>
+          </text>
+          <text id="/data/patientRegForm/maritalStatus:label">
+            <value>Marital Status</value>
+          </text>
+          <text id="/data/patientRegForm/maritalStatus:option0">
+            <value>Married</value>
+          </text>
+          <text id="/data/patientRegForm/maritalStatus:option1">
+            <value>Single/Never Married</value>
+          </text>
+          <text id="/data/patientRegForm/maritalStatus:option2">
+            <value>Divorced/Seperated</value>
+          </text>
+          <text id="/data/patientRegForm/maritalStatus:option3">
+            <value>Child</value>
+          </text>
+          <text id="/data/patientRegForm/maritalStatus:option4">
+            <value>Widowed</value>
+          </text>
+          <text id="/data/patientRegForm/tribe:label">
+            <value>Tribe</value>
+          </text>
+          <text id="/data/patientRegForm/religion:label">
+            <value>Religion</value>
+          </text>
+          <text id="/data/patientRegForm/educationLevel:label">
+            <value>Education Level</value>
+          </text>
+          <text id="/data/nok:label">
+            <value>Next of Kin</value>
+          </text>
+          <text id="/data/nok/names-nok:label">
+            <value>Names</value>
+          </text>
+          <text id="/data/nok/relationship-nok:label">
+            <value>Relationship</value>
+          </text>
+          <text id="/data/nok/phone-nok:label">
+            <value>Phone Number</value>
+          </text>
+        </translation>
+      </itext>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+      <bind nodeset="/data/patientRegForm" relevant="(kmarriette)"/>
+      <bind nodeset="/data/patientRegForm/firstName" type="string" required="true()" relevant="(kmarriette)"/>
+      <bind nodeset="/data/patientRegForm/middleName" type="string" relevant="(kmarriette)"/>
+      <bind nodeset="/data/patientRegForm/lastName" type="string" required="true()" relevant="(kmarriette)"/>
+      <bind nodeset="/data/patientRegForm/village" type="string" required="true()" relevant="(kmarriette)"/>
+      <bind nodeset="/data/patientRegForm/phoneNumber" type="string" relevant="(kmarriette)"/>
+      <bind nodeset="/data/patientRegForm/dob" type="date" relevant="(kmarriette)"/>
+      <bind nodeset="/data/patientRegForm/nationalID" type="string" relevant="(kmarriette)"/>
+      <bind nodeset="/data/patientRegForm/gender" type="select1" required="true()" relevant="(kmarriette)"/>
+      <bind nodeset="/data/patientRegForm/maritalStatus" type="select1" relevant="(kmarriette)"/>
+      <bind nodeset="/data/patientRegForm/tribe" type="string" relevant="(kmarriette)"/>
+      <bind nodeset="/data/patientRegForm/religion" type="string" relevant="(kmarriette)"/>
+      <bind nodeset="/data/patientRegForm/educationLevel" type="string" relevant="(kmarriette)"/>
+      <bind nodeset="/data/nok/names-nok" type="string"/>
+      <bind nodeset="/data/nok/relationship-nok" type="string"/>
+      <bind nodeset="/data/nok/phone-nok" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/patientRegForm" appearance="field-list">
+      <label ref="jr:itext('/data/patientRegForm:label')"/>
+      <input ref="/data/patientRegForm/firstName">
+        <label ref="jr:itext('/data/patientRegForm/firstName:label')"/>
+      </input>
+      <input ref="/data/patientRegForm/middleName">
+        <label ref="jr:itext('/data/patientRegForm/middleName:label')"/>
+      </input>
+      <input ref="/data/patientRegForm/lastName">
+        <label ref="jr:itext('/data/patientRegForm/lastName:label')"/>
+      </input>
+      <input ref="/data/patientRegForm/village">
+        <label ref="jr:itext('/data/patientRegForm/village:label')"/>
+      </input>
+      <input ref="/data/patientRegForm/phoneNumber">
+        <label ref="jr:itext('/data/patientRegForm/phoneNumber:label')"/>
+      </input>
+      <input ref="/data/patientRegForm/dob">
+        <label ref="jr:itext('/data/patientRegForm/dob:label')"/>
+      </input>
+      <input ref="/data/patientRegForm/nationalID">
+        <label ref="jr:itext('/data/patientRegForm/nationalID:label')"/>
+      </input>
+      <select1 ref="/data/patientRegForm/gender">
+        <label ref="jr:itext('/data/patientRegForm/gender:label')"/>
+        <item>
+          <label ref="jr:itext('/data/patientRegForm/gender:option0')"/>
+          <value>female</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/patientRegForm/gender:option1')"/>
+          <value>male</value>
+        </item>
+      </select1>
+      <select1 ref="/data/patientRegForm/maritalStatus">
+        <label ref="jr:itext('/data/patientRegForm/maritalStatus:label')"/>
+        <item>
+          <label ref="jr:itext('/data/patientRegForm/maritalStatus:option0')"/>
+          <value>married</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/patientRegForm/maritalStatus:option1')"/>
+          <value>single</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/patientRegForm/maritalStatus:option2')"/>
+          <value>divorced</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/patientRegForm/maritalStatus:option3')"/>
+          <value>child</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/patientRegForm/maritalStatus:option4')"/>
+          <value>widowed</value>
+        </item>
+      </select1>
+      <input ref="/data/patientRegForm/tribe">
+        <label ref="jr:itext('/data/patientRegForm/tribe:label')"/>
+      </input>
+      <input ref="/data/patientRegForm/religion">
+        <label ref="jr:itext('/data/patientRegForm/religion:label')"/>
+      </input>
+      <input ref="/data/patientRegForm/educationLevel">
+        <label ref="jr:itext('/data/patientRegForm/educationLevel:label')"/>
+      </input>
+    </group>
+    <group ref="/data/nok">
+      <label ref="jr:itext('/data/nok:label')"/>
+      <input ref="/data/nok/names-nok">
+        <label ref="jr:itext('/data/nok/names-nok:label')"/>
+      </input>
+      <input ref="/data/nok/relationship-nok">
+        <label ref="jr:itext('/data/nok/relationship-nok:label')"/>
+      </input>
+      <input ref="/data/nok/phone-nok">
+        <label ref="jr:itext('/data/nok/phone-nok:label')"/>
+      </input>
+    </group>
+  </h:body>
+  
+</h:html>

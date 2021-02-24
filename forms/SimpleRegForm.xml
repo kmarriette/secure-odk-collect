@@ -1,0 +1,151 @@
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Simple Reg Form</h:title>
+    <model>
+      <instance>
+        <data id="build_Simple-Reg-Form_1559827319">
+          <meta>
+            <instanceID/>
+          </meta>
+          <simpleregform>
+            <firstName/>
+            <lastName/>
+            <phoneNumber/>
+            <dob/>
+            <village/>
+            <para/>
+            <gravida/>
+            <gestationAge/>
+            <abortions/>
+            <hivStatus/>
+          </simpleregform>
+        </data>
+      </instance>
+      <itext>
+        <translation lang="English">
+          <text id="/data/simpleregform:label">
+            <value>Antenatal Form</value>
+          </text>
+          <text id="/data/simpleregform/firstName:label">
+            <value>First Name</value>
+          </text>
+          <text id="/data/simpleregform/lastName:label">
+            <value>Last Name</value>
+          </text>
+          <text id="/data/simpleregform/phoneNumber:label">
+            <value>Phone Number</value>
+          </text>
+          <text id="/data/simpleregform/dob:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/data/simpleregform/village:label">
+            <value>Village</value>
+          </text>
+          <text id="/data/simpleregform/para:label">
+            <value>Para</value>
+          </text>
+          <text id="/data/simpleregform/gravida:label">
+            <value>Gravida</value>
+          </text>
+          <text id="/data/simpleregform/gestationAge:label">
+            <value>Gestational Age</value>
+          </text>
+          <text id="/data/simpleregform/abortions:label">
+            <value>Abortions</value>
+          </text>
+          <text id="/data/simpleregform/hivStatus:label">
+            <value>HIV Status</value>
+          </text>
+          <text id="/data/simpleregform/hivStatus:option0">
+            <value>Negative</value>
+          </text>
+          <text id="/data/simpleregform/hivStatus:option1">
+            <value>Positive</value>
+          </text>
+        </translation>
+      </itext>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+      <bind nodeset="/data/simpleregform" relevant="(kmarriette)"/>
+      <bind nodeset="/data/simpleregform/firstName" type="string" calculate="kmarriette" relevant="(kmarriette)"/>
+      <bind nodeset="/data/simpleregform/lastName" type="string" relevant="(kmarriette)"/>
+      <bind nodeset="/data/simpleregform/phoneNumber" type="string" required="true()" relevant="(kmarriette)"/>
+      <bind nodeset="/data/simpleregform/dob" type="date" relevant="(kmarriette)"/>
+      <bind nodeset="/data/simpleregform/village" type="string" relevant="(kmarriette)"/>
+      <bind nodeset="/data/simpleregform/para" type="string" required="true()" relevant="(kmarriette)"/>
+      <bind nodeset="/data/simpleregform/gravida" type="string" required="true()" relevant="(kmarriette)"/>
+      <bind nodeset="/data/simpleregform/gestationAge" type="string" relevant="(kmarriette)"/>
+      <bind nodeset="/data/simpleregform/abortions" type="string" relevant="(kmarriette)"/>
+      <bind nodeset="/data/simpleregform/hivStatus" type="select1" required="true()" relevant="(kmarriette)"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/simpleregform" appearance="field-list">
+      <label ref="jr:itext('/data/simpleregform:label')"/>
+      <input ref="/data/simpleregform/firstName">
+        <label ref="jr:itext('/data/simpleregform/firstName:label')"/>
+      </input>
+      <input ref="/data/simpleregform/lastName">
+        <label ref="jr:itext('/data/simpleregform/lastName:label')"/>
+      </input>
+      <input ref="/data/simpleregform/phoneNumber">
+        <label ref="jr:itext('/data/simpleregform/phoneNumber:label')"/>
+      </input>
+      <input ref="/data/simpleregform/dob">
+        <label ref="jr:itext('/data/simpleregform/dob:label')"/>
+      </input>
+      <input ref="/data/simpleregform/village">
+        <label ref="jr:itext('/data/simpleregform/village:label')"/>
+      </input>
+      <input ref="/data/simpleregform/para">
+        <label ref="jr:itext('/data/simpleregform/para:label')"/>
+      </input>
+      <input ref="/data/simpleregform/gravida">
+        <label ref="jr:itext('/data/simpleregform/gravida:label')"/>
+      </input>
+      <input ref="/data/simpleregform/gestationAge">
+        <label ref="jr:itext('/data/simpleregform/gestationAge:label')"/>
+      </input>
+      <input ref="/data/simpleregform/abortions">
+        <label ref="jr:itext('/data/simpleregform/abortions:label')"/>
+      </input>
+      <select1 ref="/data/simpleregform/hivStatus">
+        <label ref="jr:itext('/data/simpleregform/hivStatus:label')"/>
+        <item>
+          <label ref="jr:itext('/data/simpleregform/hivStatus:option0')"/>
+          <value>negative</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/simpleregform/hivStatus:option1')"/>
+          <value>positive</value>
+        </item>
+      </select1>
+    </group>
+  </h:body>
+  <h:sensitivity>
+    <firstName ref="/data/firstName" level="critical">
+    </firstName>
+    <lastName ref="/data/lastName" level="confidential">
+    </lastName>
+    <phoneNumber ref="/data/phoneNumber" level="">
+    </phoneNumber>
+    <dob ref="/data/dob" level="">
+    </dob>
+    <village ref="/data/village" level="">
+    </village>
+    <para ref="/data/para" level="">
+    </para>
+    <gravida ref="/data/gravida" level="">
+    </gravida>
+    <gestationAge ref="/data/gestationAge" level="">
+    </gestationAge>
+    <abortions ref="/data/abortions" level="critical">
+    </abortions>
+    <hivStatus ref="/data/hivStatus" level="">
+    </hivStatus>
+  </h:sensitivity>
+  <h:sdf profle="cc1">
+    <public encryption="DES" masking="Yes" accesscontrol="" hashing="" password="" anonymise="" storagearea="" deidentification=""/>
+    <confidential encryption="AES128" masking="Yes" accesscontrol="" hashing="" password="" anonymise="" storagearea="" deidentification=""/>
+    <critical encryption="AES256" masking="Yes" accesscontrol="" hashing="" password="" anonymise="" storagearea="" deidentification=""/>
+  </h:sdf>
+</h:html>

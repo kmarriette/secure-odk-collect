@@ -1,0 +1,177 @@
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Lab Form</h:title>
+    <model>
+      <instance>
+        <data id="build_Lab-Form_1559308602">
+          <meta>
+            <instanceID/>
+          </meta>
+          <anemia/>
+          <bmi/>
+          <hiv-info>
+            <hivResult/>
+            <partnerStatus/>
+            <cd4Count/>
+            <viralLoad/>
+            <clinicalStage/>
+          </hiv-info>
+        </data>
+      </instance>
+      <itext>
+        <translation lang="English">
+          <text id="/data/anemia:label">
+            <value>Anemia</value>
+          </text>
+          <text id="/data/anemia:option0">
+            <value>Normal</value>
+          </text>
+          <text id="/data/anemia:option1">
+            <value>Mild</value>
+          </text>
+          <text id="/data/anemia:option2">
+            <value>Moderate</value>
+          </text>
+          <text id="/data/anemia:option3">
+            <value>Severe</value>
+          </text>
+          <text id="/data/bmi:label">
+            <value>BMI</value>
+          </text>
+          <text id="/data/bmi:option0">
+            <value>Normal</value>
+          </text>
+          <text id="/data/bmi:option1">
+            <value>Underweight</value>
+          </text>
+          <text id="/data/bmi:option2">
+            <value>Overweight</value>
+          </text>
+          <text id="/data/bmi:option3">
+            <value>Obese</value>
+          </text>
+          <text id="/data/hiv-info:label">
+            <value>HIV Information</value>
+          </text>
+          <text id="/data/hiv-info/hivResult:label">
+            <value>HIV Result</value>
+          </text>
+          <text id="/data/hiv-info/hivResult:option0">
+            <value>HIV Negative</value>
+          </text>
+          <text id="/data/hiv-info/hivResult:option1">
+            <value>HIV Positive</value>
+          </text>
+          <text id="/data/hiv-info/partnerStatus:label">
+            <value>Partner Status</value>
+          </text>
+          <text id="/data/hiv-info/partnerStatus:option0">
+            <value>HIV Negative</value>
+          </text>
+          <text id="/data/hiv-info/partnerStatus:option1">
+            <value>HIV Positive</value>
+          </text>
+          <text id="/data/hiv-info/partnerStatus:option2">
+            <value>Unknown</value>
+          </text>
+          <text id="/data/hiv-info/cd4Count:label">
+            <value>CD4 Count</value>
+          </text>
+          <text id="/data/hiv-info/viralLoad:label">
+            <value>Viral Load</value>
+          </text>
+          <text id="/data/hiv-info/clinicalStage:label">
+            <value>WHO Clinical Stage</value>
+          </text>
+        </translation>
+      </itext>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+      <bind nodeset="/data/anemia" type="select1"/>
+      <bind nodeset="/data/bmi" type="select1"/>
+      <bind nodeset="/data/hiv-info/hivResult" type="select1"/>
+      <bind nodeset="/data/hiv-info/partnerStatus" type="select1"/>
+      <bind nodeset="/data/hiv-info/cd4Count" type="string"/>
+      <bind nodeset="/data/hiv-info/viralLoad" type="string"/>
+      <bind nodeset="/data/hiv-info/clinicalStage" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <select1 ref="/data/anemia">
+      <label ref="jr:itext('/data/anemia:label')"/>
+      <item>
+        <label ref="jr:itext('/data/anemia:option0')"/>
+        <value>normal</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/anemia:option1')"/>
+        <value>mild</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/anemia:option2')"/>
+        <value>moderate</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/anemia:option3')"/>
+        <value>severe</value>
+      </item>
+    </select1>
+    <select1 ref="/data/bmi">
+      <label ref="jr:itext('/data/bmi:label')"/>
+      <item>
+        <label ref="jr:itext('/data/bmi:option0')"/>
+        <value>normal</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/bmi:option1')"/>
+        <value>underweight</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/bmi:option2')"/>
+        <value>overweight</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/bmi:option3')"/>
+        <value>obese</value>
+      </item>
+    </select1>
+    <group ref="/data/hiv-info">
+      <label ref="jr:itext('/data/hiv-info:label')"/>
+      <select1 ref="/data/hiv-info/hivResult">
+        <label ref="jr:itext('/data/hiv-info/hivResult:label')"/>
+        <item>
+          <label ref="jr:itext('/data/hiv-info/hivResult:option0')"/>
+          <value>hivNegative</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/hiv-info/hivResult:option1')"/>
+          <value>hivPositive</value>
+        </item>
+      </select1>
+      <select1 ref="/data/hiv-info/partnerStatus">
+        <label ref="jr:itext('/data/hiv-info/partnerStatus:label')"/>
+        <item>
+          <label ref="jr:itext('/data/hiv-info/partnerStatus:option0')"/>
+          <value>hivNegative</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/hiv-info/partnerStatus:option1')"/>
+          <value>hivPositive</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/hiv-info/partnerStatus:option2')"/>
+          <value>unknown</value>
+        </item>
+      </select1>
+      <input ref="/data/hiv-info/cd4Count">
+        <label ref="jr:itext('/data/hiv-info/cd4Count:label')"/>
+      </input>
+      <input ref="/data/hiv-info/viralLoad">
+        <label ref="jr:itext('/data/hiv-info/viralLoad:label')"/>
+      </input>
+      <input ref="/data/hiv-info/clinicalStage">
+        <label ref="jr:itext('/data/hiv-info/clinicalStage:label')"/>
+      </input>
+    </group>
+  </h:body>
+  
+</h:html>

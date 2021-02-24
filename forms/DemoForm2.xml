@@ -1,0 +1,91 @@
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Demo Form</h:title>
+    <model>
+      <instance>
+        <data id="build_DemoForm_1559313223">
+          <meta>
+            <instanceID/>
+          </meta>
+          <all>
+            <names/>
+            <salary/>
+            <village/>
+            <property/>
+            <untitled1/>
+          </all>
+        </data>
+      </instance>
+      <itext>
+        <translation lang="English">
+          <text id="/data/all:label">
+            <value>All</value>
+          </text>
+          <text id="/data/all/names:label">
+            <value>Names</value>
+          </text>
+          <text id="/data/all/salary:label">
+            <value>Salary</value>
+          </text>
+          <text id="/data/all/village:label">
+            <value>Village</value>
+          </text>
+          <text id="/data/all/property:label">
+            <value>Property</value>
+          </text>
+          <text id="/data/all/property:option0">
+            <value>Cattle</value>
+          </text>
+          <text id="/data/all/property:option1">
+            <value>Goats</value>
+          </text>
+          <text id="/data/all/property:option2">
+            <value>Land</value>
+          </text>
+          <text id="/data/all/property:option3">
+            <value>Buildings</value>
+          </text>
+        </translation>
+      </itext>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+      <bind nodeset="/data/all/names" type="string" required="true()"/>
+      <bind nodeset="/data/all/salary" type="string" required="true()"/>
+      <bind nodeset="/data/all/village" type="string" required="true()"/>
+      <bind nodeset="/data/all/property" type="select"/>
+      <bind nodeset="/data/all/untitled1" type="string" jr:preload="property" jr:preloadParams="deviceid"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/all" appearance="field-list">
+      <label ref="jr:itext('/data/all:label')"/>
+      <input ref="/data/all/names">
+        <label ref="jr:itext('/data/all/names:label')"/>
+      </input>
+      <input ref="/data/all/salary">
+        <label ref="jr:itext('/data/all/salary:label')"/>
+      </input>
+      <input ref="/data/all/village">
+        <label ref="jr:itext('/data/all/village:label')"/>
+      </input>
+      <select ref="/data/all/property">
+        <label ref="jr:itext('/data/all/property:label')"/>
+        <item>
+          <label ref="jr:itext('/data/all/property:option0')"/>
+          <value>cattle</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/all/property:option1')"/>
+          <value>goats</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/all/property:option2')"/>
+          <value>land</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/all/property:option3')"/>
+          <value>buildings</value>
+        </item>
+      </select>
+    </group>
+  </h:body>
+</h:html>

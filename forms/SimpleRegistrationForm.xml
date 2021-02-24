@@ -1,0 +1,160 @@
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>Simple Registration Form</h:title>
+    <model>
+      <instance>
+        <data id="build_Simple-Registration-Form_1559315906">
+          <meta>
+            <instanceID/>
+          </meta>
+          <simpleregform>
+            <names/>
+            <phoneNumber/>
+            <dob/>
+            <maritalStatus/>
+            <village/>
+          </simpleregform>
+          <vitals>
+            <gestationAge/>
+            <gravida/>
+            <para/>
+            <abortions/>
+            <hivStatus/>
+          </vitals>
+        </data>
+      </instance>
+      <itext>
+        <translation lang="English">
+          <text id="/data/simpleregform:label">
+            <value>Ante-Natal Form</value>
+          </text>
+          <text id="/data/simpleregform/names:label">
+            <value>Names</value>
+          </text>
+          <text id="/data/simpleregform/phoneNumber:label">
+            <value>Phone Number</value>
+          </text>
+          <text id="/data/simpleregform/dob:label">
+            <value>Date of Birth</value>
+          </text>
+          <text id="/data/simpleregform/maritalStatus:label">
+            <value>Marital Status</value>
+          </text>
+          <text id="/data/simpleregform/maritalStatus:option0">
+            <value>Married/Cohabiting</value>
+          </text>
+          <text id="/data/simpleregform/maritalStatus:option1">
+            <value>Single/Never Married</value>
+          </text>
+          <text id="/data/simpleregform/maritalStatus:option2">
+            <value>Divorced/Separated</value>
+          </text>
+          <text id="/data/simpleregform/maritalStatus:option3">
+            <value>Widowed</value>
+          </text>
+          <text id="/data/simpleregform/village:label">
+            <value>Village</value>
+          </text>
+          <text id="/data/vitals:label">
+            <value>Vitals</value>
+          </text>
+          <text id="/data/vitals/gestationAge:label">
+            <value>Gestational Age</value>
+          </text>
+          <text id="/data/vitals/gravida:label">
+            <value>Gravida</value>
+          </text>
+          <text id="/data/vitals/para:label">
+            <value>Para</value>
+          </text>
+          <text id="/data/vitals/abortions:label">
+            <value>Abortions</value>
+          </text>
+          <text id="/data/vitals/hivStatus:label">
+            <value>HIV Status</value>
+          </text>
+          <text id="/data/vitals/hivStatus:option0">
+            <value>Negative</value>
+          </text>
+          <text id="/data/vitals/hivStatus:option1">
+            <value>Positive</value>
+          </text>
+        </translation>
+      </itext>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+      <bind nodeset="/data/simpleregform/names" type="string" required="true()"/>
+      <bind nodeset="/data/simpleregform/phoneNumber" type="string" required="true()"/>
+      <bind nodeset="/data/simpleregform/dob" type="date"/>
+      <bind nodeset="/data/simpleregform/maritalStatus" type="select1"/>
+      <bind nodeset="/data/simpleregform/village" type="string"/>
+      <bind nodeset="/data/vitals/gestationAge" type="string"/>
+      <bind nodeset="/data/vitals/gravida" type="string" required="true()"/>
+      <bind nodeset="/data/vitals/para" type="string" required="true()"/>
+      <bind nodeset="/data/vitals/abortions" type="string"/>
+      <bind nodeset="/data/vitals/hivStatus" type="select1" required="true()"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/data/simpleregform" appearance="field-list">
+      <label ref="jr:itext('/data/simpleregform:label')"/>
+      <input ref="/data/simpleregform/names">
+        <label ref="jr:itext('/data/simpleregform/names:label')"/>
+      </input>
+      <input ref="/data/simpleregform/phoneNumber">
+        <label ref="jr:itext('/data/simpleregform/phoneNumber:label')"/>
+      </input>
+      <input ref="/data/simpleregform/dob">
+        <label ref="jr:itext('/data/simpleregform/dob:label')"/>
+      </input>
+      <select1 ref="/data/simpleregform/maritalStatus">
+        <label ref="jr:itext('/data/simpleregform/maritalStatus:label')"/>
+        <item>
+          <label ref="jr:itext('/data/simpleregform/maritalStatus:option0')"/>
+          <value>married</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/simpleregform/maritalStatus:option1')"/>
+          <value>single</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/simpleregform/maritalStatus:option2')"/>
+          <value>divorced</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/simpleregform/maritalStatus:option3')"/>
+          <value>widowed</value>
+        </item>
+      </select1>
+      <input ref="/data/simpleregform/village">
+        <label ref="jr:itext('/data/simpleregform/village:label')"/>
+      </input>
+    </group>
+    <group ref="/data/vitals" appearance="field-list">
+      <label ref="jr:itext('/data/vitals:label')"/>
+      <input ref="/data/vitals/gestationAge">
+        <label ref="jr:itext('/data/vitals/gestationAge:label')"/>
+      </input>
+      <input ref="/data/vitals/gravida">
+        <label ref="jr:itext('/data/vitals/gravida:label')"/>
+      </input>
+      <input ref="/data/vitals/para">
+        <label ref="jr:itext('/data/vitals/para:label')"/>
+      </input>
+      <input ref="/data/vitals/abortions">
+        <label ref="jr:itext('/data/vitals/abortions:label')"/>
+      </input>
+      <select1 ref="/data/vitals/hivStatus">
+        <label ref="jr:itext('/data/vitals/hivStatus:label')"/>
+        <item>
+          <label ref="jr:itext('/data/vitals/hivStatus:option0')"/>
+          <value>negative</value>
+        </item>
+        <item>
+          <label ref="jr:itext('/data/vitals/hivStatus:option1')"/>
+          <value>positive</value>
+        </item>
+      </select1>
+    </group>
+  </h:body>
+  
+</h:html>
